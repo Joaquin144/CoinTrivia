@@ -16,11 +16,11 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.joaquin.quizapp.cointrivia.R;
 import com.joaquin.quizapp.cointrivia.activities.SpinnerActivity;
 import com.joaquin.quizapp.cointrivia.adapter.CategoryAdapter;
 import com.joaquin.quizapp.cointrivia.databinding.FragmentHomeBinding;
 import com.joaquin.quizapp.cointrivia.model.CategoryModel;
+import com.joaquin.quizapp.cointrivia.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
 
         final CategoryAdapter adapter = new CategoryAdapter(getContext(), categories);
 
-        database.collection("categories")
+        database.collection(Constants.FS_CATEGORIES_COLLECTION)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

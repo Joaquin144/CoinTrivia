@@ -7,60 +7,66 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.joaquin.quizapp.cointrivia.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.joaquin.quizapp.cointrivia.databinding.FragmentWalletBinding;
+import com.joaquin.quizapp.cointrivia.model.User;
+import com.joaquin.quizapp.cointrivia.model.WithdrawRequest;
+import com.joaquin.quizapp.cointrivia.utils.Constants;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link WalletFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class WalletFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FragmentWalletBinding binding;
+    private FirebaseFirestore database;
+    private User user;
 
     public WalletFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WalletFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static WalletFragment newInstance(String param1, String param2) {
-        WalletFragment fragment = new WalletFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentWalletBinding.inflate(inflater, container, false);
+        database = FirebaseFirestore.getInstance();
+
+        setupUI();
+
+        return binding.getRoot();
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private void setupUI() {
+        database.collection(Constants.FS_USERS_COLLECTION).document(FirebaseAuth.getInstance().getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                user = documentSnapshot.toObject(User.class);
+                binding.currentCoins.setText(String.valueOf(user.getCoins()));
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wallet, container, false);
+                //binding.currentCoins.setText(user.getCoins() + "");
+
+            }
+        });
+
+        binding.sendRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user.getCoins() > Constants.MINIMUM_COINS_BEFORE_MONEY_WITHDRAW) {
+                    String uid = FirebaseAuth.getInstance().getUid();
+                    String payPal = binding.emailBox.getText().toString();
+                    WithdrawRequest request = new WithdrawRequest(uid, payPal, user.getName());
+                    database.collection(Constants.FS_WITHDRAWS_COLLECTION).document(uid).set(request).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(getContext(), "Request sent successfully.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(getContext(), "You need more coins to get withdraw.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
