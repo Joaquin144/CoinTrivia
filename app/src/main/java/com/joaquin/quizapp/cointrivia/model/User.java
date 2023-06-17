@@ -7,13 +7,11 @@ public class User {
     public User() {
     }
 
-    public User(String name, String email, String pass, String profile, String referCode, long coins) {
+    public User(String name, String email, String pass, String referCode) {
         this.name = name;
         this.email = email;
         this.pass = pass;
-        this.profile = profile;
         this.referCode = referCode;
-        this.coins = coins;
     }
 
     public String getName() {
