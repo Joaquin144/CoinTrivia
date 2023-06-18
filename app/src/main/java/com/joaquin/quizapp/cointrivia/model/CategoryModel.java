@@ -3,6 +3,10 @@ package com.joaquin.quizapp.cointrivia.model;
 public class CategoryModel {
     private String categoryId, categoryName, categoryImage;
 
+    public CategoryModel() {
+
+    }
+
     public CategoryModel(String categoryId, String categoryName, String categoryImage) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
