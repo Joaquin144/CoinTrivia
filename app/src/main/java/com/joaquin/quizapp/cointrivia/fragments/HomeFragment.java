@@ -1,6 +1,8 @@
 package com.joaquin.quizapp.cointrivia.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private FirebaseFirestore database;
+    private SharedPreferences sharedPreferences;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -36,6 +40,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         database = FirebaseFirestore.getInstance();
+        sharedPreferences = requireContext().getSharedPreferences(Constants.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
         setupUI();
 
@@ -68,8 +73,24 @@ public class HomeFragment extends Fragment {
         binding.spinwheel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(), SpinnerActivity.class));
+                if(isCooldownOver()){
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putLong("lastPlayedTime", System.currentTimeMillis());
+                    editor.apply();
+                    startActivity(new Intent(getContext(), SpinnerActivity.class));
+                }else{
+                    Toast.makeText(requireContext(), "You can only spin wheel once in every 24 hours", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+    }
+
+    private boolean isCooldownOver() {
+        long lastTimePlayed = sharedPreferences.getLong("lastPlayedTime", 0);
+        long currentTime = System.currentTimeMillis();
+        long elapsedTime = currentTime - lastTimePlayed;
+        long hoursElapsed = elapsedTime / (1000 * 60 * 60); // Convert milliseconds to hours
+
+        return hoursElapsed >= 24;
     }
 }

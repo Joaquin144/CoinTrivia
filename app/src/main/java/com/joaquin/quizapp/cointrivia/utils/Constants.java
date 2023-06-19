@@ -9,4 +9,6 @@ public final class Constants {
 
     //In App Constants
     public static long MINIMUM_COINS_BEFORE_MONEY_WITHDRAW = 50000;
+    public static String SOURCE_CODE_URL = "https://github.com/Joaquin144/CoinTrivia";
+    public static String SHARED_PREF_NAME = "UserData";
 }

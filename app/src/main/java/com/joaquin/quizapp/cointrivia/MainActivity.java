@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.joaquin.quizapp.cointrivia.activities.SettingsActivity;
 import com.joaquin.quizapp.cointrivia.databinding.ActivityMainBinding;
 import com.joaquin.quizapp.cointrivia.fragments.HomeFragment;
 import com.joaquin.quizapp.cointrivia.fragments.LeaderboardsFragment;
@@ -72,8 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (item.getItemId() == R.id.wallet) {
-            Toast.makeText(this, "wallet is clicked.", Toast.LENGTH_SHORT).show();
+            transaction.replace(R.id.content, new WalletFragment());
+            transaction.commit();
+        }else if(item.getItemId() == R.id.settings){
+            Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(settingsIntent);
         }
         return super.onOptionsItemSelected(item);
     }
