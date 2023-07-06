@@ -25,10 +25,10 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
     private void setupUI() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //privacyPolicyTv.setText(Html.fromHtml(getString(R.string.privacy_policy_text), Html.FROM_HTML_MODE_LEGACY));
-            binding.privacyPolicyTv.setText(Html.fromHtml(getString(R.string.privacy_policy_text), Html.FROM_HTML_MODE_LEGACY));
+            binding.privacyPolicyTv.setText(Html.fromHtml(getString(R.string.privacy_policy_text_two), Html.FROM_HTML_MODE_LEGACY));
         } else {
             //privacyPolicyTv.setText(Html.fromHtml(getString(R.string.privacy_policy_text)));
-            binding.privacyPolicyTv.setText(Html.fromHtml(getString(R.string.privacy_policy_text)));
+            binding.privacyPolicyTv.setText(Html.fromHtml(getString(R.string.privacy_policy_text_two)));
         }
 
         ActionBar actionBar = getSupportActionBar();

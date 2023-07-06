@@ -10,12 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.joaquin.quizapp.cointrivia.activities.SettingsActivity;
 import com.joaquin.quizapp.cointrivia.databinding.ActivityMainBinding;
 import com.joaquin.quizapp.cointrivia.fragments.HomeFragment;
 import com.joaquin.quizapp.cointrivia.fragments.LeaderboardsFragment;
 import com.joaquin.quizapp.cointrivia.fragments.ProfileFragment;
 import com.joaquin.quizapp.cointrivia.fragments.WalletFragment;
+import com.joaquin.quizapp.cointrivia.utils.Constants;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
 
@@ -30,8 +32,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-
         setupBottomNavigation();
+        subscribeToNotificationTopics();
+    }
+
+    private void subscribeToNotificationTopics() {
+        FirebaseMessaging.getInstance().subscribeToTopic(Constants.APP_NOTIFICATION_TOPIC);
     }
 
     private void setupBottomNavigation() {

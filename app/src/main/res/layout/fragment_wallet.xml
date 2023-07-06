@@ -54,45 +54,45 @@
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="50.000 coins required to withdraw"
-        android:textColor="@color/color_white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/currentCoins"
-        app:layout_constraintStart_toStartOf="@+id/currentCoins"
-        app:layout_constraintTop_toBottomOf="@+id/currentCoins" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView15"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:fontFamily="@font/roboto_light"-->
+<!--        android:text="50.000 coins required to withdraw"-->
+<!--        android:textColor="@color/color_white"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/currentCoins"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/currentCoins"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/currentCoins" />-->
 
-    <EditText
-        android:id="@+id/emailBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/textbox"
-        android:drawableLeft="@drawable/ic_paypal"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Paypal Email Address"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/view6"
-        app:layout_constraintStart_toStartOf="@+id/view6"
-        app:layout_constraintTop_toBottomOf="@+id/view6" />
+<!--    <EditText-->
+<!--        android:id="@+id/emailBox"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@drawable/textbox"-->
+<!--        android:drawableLeft="@drawable/ic_paypal"-->
+<!--        android:drawablePadding="10dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Paypal Email Address"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:padding="15dp"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/view6"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/view6"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/view6" />-->
 
-    <Button
-        android:id="@+id/sendRequest"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button_3"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Send Request"
-        android:textColor="@color/color_white"
-        app:layout_constraintEnd_toEndOf="@+id/emailBox"
-        app:layout_constraintStart_toStartOf="@+id/emailBox"
-        app:layout_constraintTop_toBottomOf="@+id/emailBox" />
+<!--    <Button-->
+<!--        android:id="@+id/sendRequest"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:background="@drawable/button_3"-->
+<!--        android:fontFamily="@font/roboto_bold"-->
+<!--        android:text="Send Request"-->
+<!--        android:textColor="@color/color_white"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/emailBox"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/emailBox"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/emailBox" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

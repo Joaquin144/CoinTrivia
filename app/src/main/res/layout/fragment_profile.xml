@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment" >
+    tools:context=".fragments.ProfileFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImage"
@@ -18,74 +18,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/emailBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/textbox"
-        android:drawableLeft="@drawable/email"
-        android:drawableTint="@color/colorPurple"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Email Address"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+    <!--    <EditText-->
+    <!--        android:id="@+id/emailBox"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_marginRight="20dp"-->
+    <!--        android:background="@drawable/textbox"-->
+    <!--        android:drawableLeft="@drawable/email"-->
+    <!--        android:drawablePadding="10dp"-->
+    <!--        android:drawableTint="@color/colorPurple"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Email Address"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        android:padding="15dp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/profileImage" />-->
+
 
     <EditText
         android:id="@+id/nameBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/textbox"
         android:drawableLeft="@drawable/user"
-        android:drawableTint="@color/colorPurple"
         android:drawablePadding="10dp"
+        android:drawableTint="@color/colorPurple"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailBox" />
-
-    <EditText
-        android:id="@+id/passBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/textbox"
-        android:drawableLeft="@drawable/password"
-        android:drawableTint="@color/colorPurple"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameBox" />
+        app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
     <Button
         android:id="@+id/updateBtn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/button_3"
         android:fontFamily="@font/roboto_bold"
+        android:paddingHorizontal="36dp"
         android:text="Update Profile"
         android:textColor="@color/color_white"
-        app:layout_constraintEnd_toEndOf="@+id/passBox"
-        app:layout_constraintStart_toStartOf="@+id/passBox"
-        app:layout_constraintTop_toBottomOf="@+id/passBox" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameBox" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

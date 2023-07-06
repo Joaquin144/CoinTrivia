@@ -56,7 +56,7 @@ public class SignupActivity extends AppCompatActivity {
                 name = binding.nameBox.getText().toString();
                 referCode = binding.referBox.getText().toString();
 
-                final User user = new User(name, email, pass, referCode);
+                final User user = new User(name, email, referCode);
 
                 dialog.show();
                 auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
