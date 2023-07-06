@@ -37,8 +37,8 @@ public class LeaderboardsAdapter extends RecyclerView.Adapter<LeaderboardsAdapte
 
         holder.binding.name.setText(user.getName());
         holder.binding.coins.setText(String.valueOf(user.getCoins()));
-        holder.binding.index.setText(String.format("#%d", position+1));
-        setBckgColor(holder.binding, position+1);
+        holder.binding.index.setText(String.format("#%d", position + 1));
+        setBckgColor(holder.binding, position + 1);
 
 //        Glide.with(context)
 //                .load(user.getProfile())
@@ -46,12 +46,14 @@ public class LeaderboardsAdapter extends RecyclerView.Adapter<LeaderboardsAdapte
     }
 
     private void setBckgColor(RowLeaderboardsBinding binding, int rank) {
-        if(rank == 1) {
+        if (rank == 1) {
             binding.imageView7.setImageResource(R.drawable.rank_one_gold_medal);
         } else if (rank == 2) {
             binding.imageView7.setImageResource(R.drawable.rank_two_silver_medal);
-        }else if(rank == 3){
+        } else if (rank == 3) {
             binding.imageView7.setImageResource(R.drawable.rank_three_bronze_medal);
+        } else {
+            binding.imageView7.setImageResource(R.drawable.certificate);
         }
     }
 
@@ -62,6 +64,7 @@ public class LeaderboardsAdapter extends RecyclerView.Adapter<LeaderboardsAdapte
 
     public class LeaderboardViewHolder extends RecyclerView.ViewHolder {
         RowLeaderboardsBinding binding;
+
         public LeaderboardViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = RowLeaderboardsBinding.bind(itemView);

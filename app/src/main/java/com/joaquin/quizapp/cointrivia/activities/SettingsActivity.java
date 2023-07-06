@@ -126,7 +126,11 @@ public class SettingsActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(SettingsActivity.this, "Your account and associated data has been deleted successfully", Toast.LENGTH_LONG).show();
+                                Toast.makeText(SettingsActivity.this, "Your account and data has been deleted.", Toast.LENGTH_LONG).show();
+                                Intent loginActivityIntent = new Intent(SettingsActivity.this, LoginActivity.class);
+                                loginActivityIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(loginActivityIntent);
+                                finish();
                             } else {
                                 //Toast.makeText(SettingsActivity.this, "Failed to delete user: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 showExceptionDialog("Failed to delete user: " + task.getException().getMessage());

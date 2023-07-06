@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "138906215406",
+    "project_id": "coin-trivia",
+    "storage_bucket": "coin-trivia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138906215406:android:e9a89919b2ba726468e4ff",
+        "android_client_info": {
+          "package_name": "com.joaquin.quizapp.cointrivia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138906215406-po4nobk3q9g3q1paqfegjjsn17m3pvi3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joaquin.quizapp.cointrivia",
+            "certificate_hash": "b16a03a5efb0db853bc36358986410a4a897b66e"
+          }
+        },
+        {
+          "client_id": "138906215406-3kvp3rfukvm48d6cfhuk7qcptko2juq3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBE5Oa7LdSUU-Y_zzT2tEXDnZzDhPLiK2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138906215406-3kvp3rfukvm48d6cfhuk7qcptko2juq3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
