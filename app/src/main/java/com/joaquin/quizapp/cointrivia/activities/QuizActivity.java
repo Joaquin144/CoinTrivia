@@ -55,7 +55,7 @@ public class QuizActivity extends AppCompatActivity {
                 .collection(Constants.FS_CATEGORIES__QUESTIONS_SUB_COLLECTION)
                 .whereGreaterThanOrEqualTo("index", rand)
                 .orderBy("index")
-                .limit(5).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if (queryDocumentSnapshots.getDocuments().size() < 5) {
@@ -64,7 +64,7 @@ public class QuizActivity extends AppCompatActivity {
                                     .collection(Constants.FS_CATEGORIES__QUESTIONS_SUB_COLLECTION)
                                     .whereLessThanOrEqualTo("index", rand)
                                     .orderBy("index")
-                                    .limit(5).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                    .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                         @Override
                                         public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                                             for (DocumentSnapshot snapshot : queryDocumentSnapshots) {
