@@ -60,6 +60,24 @@ By adopting the MVC architecture, the Coin Trivia app achieves a clear separatio
 ## [Demo Video](https://youtu.be/DEvtbpqqxoE)
 <img src="https://firebasestorage.googleapis.com/v0/b/coin-trivia.appspot.com/o/OTHER_IMAGES%2Fyoutube_icon.png?alt=media&token=74d352b3-c07d-47f3-8b7a-49eede5b90e8" alt="Image Preview" height="80" href="https://youtu.be/DEvtbpqqxoE">
 
+## Getting Started
+
+To run the app locally, follow these steps:
+
+1. Clone the repository: (https://github.com/Joaquin144/Social-Jaw.git)
+
+2. Open the project in Android Studio.
+
+3. Set up Firebase project and configure the necessary services (Authentication, Firestore, Storage) by following the Firebase documentation.
+
+4. Update the Firebase configuration file (`google-services.json`) with your own project details.
+
+5. Build and run the app on an Android device or emulator.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvement, please create a new issue or submit a pull request.
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
